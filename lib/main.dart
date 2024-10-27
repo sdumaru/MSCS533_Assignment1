@@ -48,6 +48,7 @@ class _ConversionPageState extends State<ConversionPage> {
   String _toUnit = 'feet';
   final TextEditingController _valueController = TextEditingController();
   double _convertedValue = 0.0;
+  // Save the message in a string so that it can be printed later based on output
   String _conversionMessage =
       'Enter a value to convert and select appropriate units';
 
@@ -81,7 +82,7 @@ class _ConversionPageState extends State<ConversionPage> {
       conversionSuccess = false;
     }
 
-    // Check if the conversion result is 0.0, print error message if so
+    // Check if the conversion is successful, print error message if so
     if (!conversionSuccess) {
       _conversionMessage = 'Conversion criteria not match';
     } else {
@@ -134,14 +135,14 @@ class _ConversionPageState extends State<ConversionPage> {
                     borderSide: BorderSide(color: Colors.lightBlue)),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), // Add space of 20
             const Text(
               'From',
               style: TextStyle(fontSize: 18),
             ),
             InputDecorator(
               decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
+                border: UnderlineInputBorder(),   // Add under line border
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
@@ -174,14 +175,14 @@ class _ConversionPageState extends State<ConversionPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), // Add space of 20
             const Text(
               'To',
               style: TextStyle(fontSize: 18),
             ),
             InputDecorator(
               decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
+                border: UnderlineInputBorder(),   // Add under line border
               ),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
@@ -214,7 +215,7 @@ class _ConversionPageState extends State<ConversionPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), // Add space of 20
             Center(
               child: ElevatedButton(
                 onPressed: _convert,
@@ -234,7 +235,7 @@ class _ConversionPageState extends State<ConversionPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), // Add space of 20
             // Print the result of text
             Center(
               child: Text(
